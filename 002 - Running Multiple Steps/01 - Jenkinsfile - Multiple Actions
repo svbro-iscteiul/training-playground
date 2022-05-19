@@ -5,5 +5,13 @@ pipeline {
 		}
 	}
     stages {
+        stage('run') {
+            steps {
+                sh 'date > result.txt'
+		sh 'sleep 10s'
+		sh 'date >> result.txt'
+		sh 'cat result.txt'
+            }
+        }
     }
 }
