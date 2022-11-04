@@ -4,6 +4,7 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
+	
     triggers {
       pollSCM '* * * * *'
     }
