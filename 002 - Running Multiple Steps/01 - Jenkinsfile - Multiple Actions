@@ -14,6 +14,7 @@ pipeline {
 			sh 'date >> result.txt'
 			sh 'cat result.txt'
 			count ++
+		}
            }
         }
     }
