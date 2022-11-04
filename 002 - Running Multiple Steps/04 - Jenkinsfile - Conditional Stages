@@ -1,9 +1,36 @@
 pipeline {
-    agent { 
-		docker { 
-			image 'alpine:latest' 
+	agent {
+		docker {
+			image 'alpine:latest'
 		}
 	}
-    stages {
-    }
+	stages {
+		stage('first') {
+			steps {
+				script {
+					stage = input message: 'Which stage to execute, build or test',
+					parameters: [string(defaultValue: '',
+							description: '',
+							name: 'Stage')]
+
+				}
+			}
+		}
+		stage('build') {
+			when {
+				environment(name: "stage", value: "build")
+			}
+			steps {
+				echo 'Hello from build stage'
+			}
+		}
+		stage('test') {
+			when {
+				environment(name: "stage", value: "test")
+			}
+			steps {
+				echo 'Hello from test stage'
+			}
+		}
+	}
 }
