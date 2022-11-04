@@ -1,19 +1,18 @@
 pipeline {
-	agent {
-		docker {
-			image 'alpine:latest'
+    agent { 
+		docker { 
+			image 'alpine:latest' 
 		}
 	}
-	triggers {
-		pollSCM '* * * * *'
-	}
-	stages {
-		stage('build') {
-			steps {
-				sh 'cat /etc/alpine-release'
-				def now = new Date()
-				println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
-			}
-		}
-	}
+    triggers {
+      pollSCM '* * * * *'
+    }
+    stages {
+        stage('build') {
+            steps {
+                sh 'cat /etc/alpine-release'
+		sh 'echo Date'
+            }
+        }
+    }
 }
