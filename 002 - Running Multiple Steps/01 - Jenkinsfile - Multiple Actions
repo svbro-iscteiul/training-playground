@@ -1,7 +1,7 @@
 def writeToFile (text = ''){
 
 	touch "$text"
-	"date > $text"
+	"echo date > $text"
 	"cat $text"
 }
 
