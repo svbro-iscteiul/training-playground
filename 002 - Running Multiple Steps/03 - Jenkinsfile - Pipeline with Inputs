@@ -7,14 +7,14 @@ pipeline {
     stages {
         stage('build') {
             steps {
-	     def NAME = input(id: 'NAME', message: 'Name',
-             parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
-                description:'describing choices', name:'nameChoice', choices: "QA\nUAT\nProduction\nDevelop\nMaster"]
-             ])
-	     def AGE = input(id: 'AGE', message: 'Age',
-             parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
-                description:'describing choices', name:'nameChoice', choices: "QA\nUAT\nProduction\nDevelop\nMaster"]
-             ])
+	     NAME = input message: 'Please enter the name',
+                             parameters: [string(defaultValue: '',
+                                          description: '',
+                                          name: 'Name')]
+	    AGE = input message: 'Please enter the age',
+                             parameters: [string(defaultValue: '',
+                                          description: '',
+                                          name: 'Age')]
                 echo "$NAME"
                 echo "$AGE"
             }
