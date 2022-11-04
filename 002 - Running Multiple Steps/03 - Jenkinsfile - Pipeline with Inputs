@@ -7,14 +7,16 @@ pipeline {
     stages {
         stage('build') {
             steps {
-	     env.NAME = input message: 'Please enter the name',
+	     script {
+	     	NAME = input message: 'Please enter the name',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Name')]
-	     env.AGE = input message: 'Please enter the age',
+	     	AGE = input message: 'Please enter the age',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Age')]
+		 }
                 echo "$NAME"
                 echo "$AGE"
             }
