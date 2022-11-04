@@ -11,12 +11,8 @@ pipeline {
 		stage('build') {
 			steps {
 				sh 'cat /etc/alpine-release'
-			}
-			stage('date') {
-				steps {
-					def now = new Date()
-        				println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
-				}
+				def now = new Date()
+				println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
 			}
 		}
 	}
