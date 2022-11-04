@@ -18,7 +18,7 @@ pipeline {
 		}
 		stage('build') {
 			when {
-				environment(name: "stage", value: "build")
+				environment(name: 'stage', value: 'build')
 			}
 			steps {
 				echo 'Hello from build stage'
