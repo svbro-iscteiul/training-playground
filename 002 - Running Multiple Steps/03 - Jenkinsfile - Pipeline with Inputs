@@ -17,8 +17,8 @@ pipeline {
                                           description: '',
                                           name: 'Age')]
 		 }
-                echo "$NAME"
-                echo "$AGE"
+                echo "Name : $NAME"
+                echo "Age: $AGE"
             }
         }
     }
