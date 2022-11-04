@@ -7,11 +7,11 @@ pipeline {
     stages {
         stage('build') {
             steps {
-	     NAME = input message: 'Please enter the name',
+	     env.NAME = input message: 'Please enter the name',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Name')]
-	    AGE = input message: 'Please enter the age',
+	     env.AGE = input message: 'Please enter the age',
                              parameters: [string(defaultValue: '',
                                           description: '',
                                           name: 'Age')]
