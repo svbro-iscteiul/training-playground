@@ -7,8 +7,9 @@ pipeline {
 	stages {
 		stage("build") {
 			agent {
-				docker 'maven:latest'
+				docker 'node:latest'
 			}
+			agent { docker 'maven:latest' }
 			steps {
 				parallel(
 					"firstTask": {
