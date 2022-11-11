@@ -2,17 +2,23 @@ pipeline {
 	agent none
 	stages {
 		stage("build") {
-			agent {
-				docker 'node:latest'
-			}
-			steps {
-				parallel(
-					"firstTask": {
-					echo 'batata'
-				},
-					"secondTask": {
-					sh 'npm --version'
-				})
+			parallel {
+				stage('npm') {
+					agent {
+						docker 'node:latest'
+					}
+					steps {
+						sh 'npm --version'
+					}
+				}
+				stage('maven') {
+					agent {
+						docker 'maven:latest'
+					}
+					steps {
+						sh 'mvn --version'
+					}
+				}
 			}
 		}
 	}
