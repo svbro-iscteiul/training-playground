@@ -1,13 +1,12 @@
 pipeline {
-	agent {
-		docker {
-			image 'maven:latest'
-		}
-	}
+	agent none
 	stages {
 		stage("build") {
 			agent {
 				docker 'node:latest'
+			}
+			agent {
+				docker 'maven:latest'
 			}
 			steps {
 				parallel(
