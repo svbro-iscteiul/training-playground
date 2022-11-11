@@ -3,13 +3,13 @@ pipeline {
     	dockerfile{
     		filename '02 - Dockerfile - Dockerfile Agent'
 		dir '003 - Defining Execution Environments'
-		additionalBuildArgs '--build-arg version=1.0.2'
+		additionalBuildArgs '--build-arg ENV_VARIABLE="Value for build"'
 		args '-e ENV_VARIABLE="Value for execution"'
    	 }
     }
     stages {
         stage('build') {
-            steps {
+            steps {	    
                 sh 'if [ "$ENV_VARIABLE" != "Value for execution" ]; then exit 1; fi'
             }
         }
