@@ -8,7 +8,7 @@ pipeline {
 			steps {
 				parallel(
 					"firstTask": {
-					echo batata
+					echo 'batata'
 				},
 					"secondTask": {
 					sh 'npm --version'
