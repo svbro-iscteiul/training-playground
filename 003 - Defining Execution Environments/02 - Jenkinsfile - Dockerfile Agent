@@ -4,7 +4,7 @@ pipeline {
     		filename '02 - Dockerfile - Dockerfile Agent'
 		dir '003 - Defining Execution Environments'
 		additionalBuildArgs '--build-arg version=1.0.2'
-		args '-v /tmp:/tmp'
+		args '-e ENV_VARIABLE="Value for execution"'
    	 }
     }
     stages {
