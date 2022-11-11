@@ -5,13 +5,10 @@ pipeline {
 			agent {
 				docker 'node:latest'
 			}
-			agent {
-				docker 'maven:latest'
-			}
 			steps {
 				parallel(
 					"firstTask": {
-					sh 'mvn --version'
+					echo batata
 				},
 					"secondTask": {
 					sh 'npm --version'
