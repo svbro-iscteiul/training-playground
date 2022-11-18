@@ -7,8 +7,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-	        sh  "apk add curl"
-                sh "curl www.google.com"
+	   	   archiveArtifacts artifacts: '**/*.txt',
+                   allowEmptyArchive: true,
+                   fingerprint: true,
+                   onlyIfSuccessful: true
+	           sh  "apk add curl"
+                   sh "curl www.google.com"
             }
         }
     }
