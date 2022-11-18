@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-	        RUN apk add curl
+	        sh  "apk add curl"
                 sh "curl www.google.com"
             }
         }
